@@ -113,22 +113,26 @@ public class World {
 	 * Convert this World to a string for display.
 	 * @return String representation of world
 	 */
+
 	
 	public String toString() {
-		String toReturn = "  ";
+		StringBuilder res = new StringBuilder(); 
+		res.append("  ");
 		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+			res.append(String.valueOf(j % 10));
 		}
-		toReturn += "\n";
+		res.append("\n");
 		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
+			res.append(String.valueOf(j % 10) + " ");
 			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
+				res.append(_world[j][k].getStateRep());
 			}
-			toReturn += "\n";
+			res.append("\n");
 		}
-		return toReturn;
+		return res.toString();
 	}
+
+
 	
 	/**
 	 * Generate initial game board.
